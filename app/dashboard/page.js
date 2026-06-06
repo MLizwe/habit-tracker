@@ -18,7 +18,7 @@ export default function Dashboard() {
       <h1>Dashboard</h1>
 
       {habits.map((habit) => (
-        <p>{habit.name}</p>
+        <p key={habit.id}>{habit.name}</p>
       ))}
 
     </div>
