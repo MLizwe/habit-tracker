@@ -4,14 +4,30 @@ export default function Habits() {
       <h1>Habits</h1>
 
       <h2>Health</h2>
-      {/* list of health habits here */}
+      <ul>
+      <li>Drink water</li>
+      <li>Sleep 8 hours</li>
+      </ul>
 
       <h2>Learning</h2>
-      {/* list of learning habits here */}
+      <ul>
+      <li>Reading</li>
+      <li>Journaling</li>
+      </ul>
 
       <h2>Fitness</h2>
-      {/* list of fitness habits here */}
+      <ul>
+      <li>30 minute Exercise</li>
+      <li>10 000 steps</li>
+      </ul>
+
+      <form>
+      <input type="text" placeholder="Add a new habit" />
+      <button>Add Habit</button>
+      </form>
 
     </div>
+
+    
   );
 }
