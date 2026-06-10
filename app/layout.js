@@ -5,9 +5,9 @@ import Navbar from "./components/Navbar";
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="min-h-screen flex flex-col bg-gray-900 text-white">
         <Navbar />
-        <main>
+        <main className="flex-1 flex flex-col px-4 py-10 w-full max-w-3xl mx-auto">
           {children}
         </main>
       </body>
