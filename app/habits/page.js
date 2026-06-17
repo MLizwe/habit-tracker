@@ -1,3 +1,5 @@
+import HabitListItem from "../components/HabitListItem";
+
 export default function Habits() {
   return (
     <div className="w-full flex flex-col gap-8">
@@ -6,24 +8,24 @@ export default function Habits() {
       <div>
         <h2 className="text-xl font-semibold text-purple-400 mb-2">Health</h2>
         <ul className="flex flex-col gap-2">
-          <li className="bg-gray-800 px-4 py-3 rounded-lg">Drink water</li>
-          <li className="bg-gray-800 px-4 py-3 rounded-lg">Sleep 8 hours</li>
+          <HabitListItem name="Drink water" />
+          <HabitListItem name="Sleep 8 hours" />
         </ul>
       </div>
 
       <div>
         <h2 className="text-xl font-semibold text-purple-400 mb-2">Learning</h2>
         <ul className="flex flex-col gap-2">
-          <li className="bg-gray-800 px-4 py-3 rounded-lg">Reading</li>
-          <li className="bg-gray-800 px-4 py-3 rounded-lg">Journaling</li>
+          <HabitListItem name="Reading" />
+          <HabitListItem name="Journaling" />
         </ul>
       </div>
 
       <div>
         <h2 className="text-xl font-semibold text-purple-400 mb-2">Fitness</h2>
         <ul className="flex flex-col gap-2">
-          <li className="bg-gray-800 px-4 py-3 rounded-lg">30 minute Exercise</li>
-          <li className="bg-gray-800 px-4 py-3 rounded-lg">10 000 steps</li>
+          <HabitListItem name="30 minute Exercise" />
+          <HabitListItem name="10 000 steps" />
         </ul>
       </div>
 
@@ -31,7 +33,6 @@ export default function Habits() {
         <input type="text" placeholder="Add a new habit" className="flex-1 bg-gray-800 text-white px-4 py-3 rounded-lg outline-none" />
         <button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors">Add Habit</button>
       </form>
-
     </div>
   );
 }
