@@ -1,9 +1,20 @@
-export async function GET() {
-  const habits = [
-    { id: 1, name: "Drink water", streak: 3 },
-    { id: 2, name: "Exercise", streak: 7 },
-    { id: 3, name: "Read", streak: 1 },
-  ];
+import { connectToDB } from '../db';
 
-  return Response.json(habits);
+export async function GET() {
+    const { db } = await connectToDB();
+    const habits = await db.collection('habits').find({}).toArray();
+    return Response.json(habits);
+}
+
+export async function POST(request) {
+    const { db } = await connectToDB();
+    const data = await request.json();
+    
+    await db.collection('habits').insertOne({
+        name: data.name,
+        streak: 0,
+        category: data.category
+    });
+
+    return Response.json({ message: 'Habit created' });
 }
