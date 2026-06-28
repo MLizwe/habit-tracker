@@ -17,7 +17,7 @@ export default function Dashboard() {
       <h1 className="text-3xl font-bold text-white">Dashboard</h1>
       <div className="flex flex-col gap-4">
         {habits.map((habit) => (
-          <HabitCard key={habit.id} habit={habit} />
+          <HabitCard key={habit._id} habit={habit} />
         ))}
       </div>
     </div>
