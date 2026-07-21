@@ -23,23 +23,15 @@ export default async function EditHabit({ params }) {
         <div className="w-full flex flex-col gap-6">
             <h1 className="text-3xl font-bold text-white">Edit Habit</h1>
             <form action={updateHabit} className="flex flex-col gap-4">
-                <input
-                    type="text"
-                    name="name"
-                    defaultValue={habit.name}
-                    className="bg-gray-800 text-white px-4 py-3 rounded-lg outline-none"
-                />
-                <select
-                    name="category"
-                    defaultValue={habit.category}
-                    className="bg-gray-800 text-white px-4 py-3 rounded-lg"
-                >
+                <input type="text" name="name" defaultValue={habit.name}
+                    className="bg-gray-800 text-white px-4 py-3 rounded-lg outline-none" />
+                <select name="category" defaultValue={habit.category}
+                    className="bg-gray-800 text-white px-4 py-3 rounded-lg">
                     <option>Health</option>
                     <option>Learning</option>
                     <option>Fitness</option>
                 </select>
-                <button
-                    type="submit"
+                <button type="submit"
                     className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg transition-colors">
                     Update Habit
                 </button>
