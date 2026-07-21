@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 
 export default function HabitCard({ habit, onDelete }) {
@@ -12,7 +13,7 @@ export default function HabitCard({ habit, onDelete }) {
           Edit
         </Link>
         <button
-          onClick={() => onDelete(habit._id)}
+          onClick={() => onDelete && onDelete(habit._id)}
           className="text-red-400 hover:text-red-300 text-sm transition-colors">
           Delete
         </button>
