@@ -20,11 +20,14 @@ export default async function RootLayout({ children }) {
   let user = null;
 
   if (session) {
-    const secret = new TextEncoder().encode(process.env.JWT_SECRET);
-    const { payload } = await jwtVerify(session.value, secret);
-    user = payload;
-  }
-
+    try {
+        const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+        const { payload } = await jwtVerify(session.value, secret);
+        user = payload;
+    } catch (error) {
+        user = null;
+    }
+}
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col bg-gray-900 text-white">
