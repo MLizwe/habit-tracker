@@ -1,6 +1,6 @@
 import "server-only"
 import { generateText, NoObjectGeneratedError, Output } from 'ai';
-import { githubModels } from "./github-models";
+import { groqModels } from "./groq-models";
 import { habitSuggestionSchema, SUGGESTION_COUNT } from "./habit-suggestion-schema";
 
 const SYSTEM_PROMPT = `
@@ -22,7 +22,7 @@ export async function suggestHabits(habits) {
 
     try {
         const result = await generateText({
-            model: githubModels("openai/gpt-4.1-mini"),
+            model: groqModels("openai/gpt-oss-20b"),
             system: SYSTEM_PROMPT,
             prompt: `The user currently has these habits:
                 ${JSON.stringify(existingHabits, null, 2)}`.trim(),
@@ -31,7 +31,13 @@ export async function suggestHabits(habits) {
                 description: "Suggested habits based on user's existing habits",
                 schema: habitSuggestionSchema,
             }),
-            maxOutputTokens: 900,
+            maxRetries: 0,
+            providerOptions: {
+                groq: {
+                    reasoningEffort: "low",
+                },
+            },
+            maxOutputTokens: 2500
         });
 
         return result.output;

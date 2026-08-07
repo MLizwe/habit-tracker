@@ -9,7 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@ai-sdk/openai-compatible": "^3.0.18",
+    "@ai-sdk/groq": "^4.0.24",
     "ai": "^7.0.44",
     "jose": "^6.2.3",
     "mongodb": "^7.4.0",
