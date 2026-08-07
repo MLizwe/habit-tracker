@@ -3,6 +3,7 @@ import { jwtVerify } from "jose";
 import { redirect } from "next/navigation";
 import { connectToDB } from "../api/db";
 import HabitCard from "../components/HabitCard";
+import SuggestButton from "../components/SuggestButton";
 
 export default async function Dashboard() {
     const cookieStore = await cookies();
@@ -35,6 +36,7 @@ export default async function Dashboard() {
                     <HabitCard key={habit._id} habit={habit} />
                 ))}
             </div>
+            <SuggestButton />
         </div>
     );
 }
