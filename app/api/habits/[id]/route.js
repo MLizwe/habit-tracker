@@ -1,4 +1,4 @@
-import { connectToDB } from '../../db';
+import { connectToDB } from '@/api/db';
 import { ObjectId } from 'mongodb';
 
 export async function DELETE(request, { params }) {

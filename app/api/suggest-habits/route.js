@@ -1,7 +1,7 @@
-import { connectToDB } from '../db';
+import { connectToDB } from '@/api/db';
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
-import { suggestHabits } from '@/app/lib/ai/suggest-habits';
+import { suggestHabits } from '@/lib/ai/suggest-habits';
 
 export async function POST(request) {
     const cookieStore = await cookies();

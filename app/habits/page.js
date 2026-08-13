@@ -1,9 +1,9 @@
 import { cookies } from "next/headers";
 import { jwtVerify } from "jose";
 import { redirect } from "next/navigation";
-import { connectToDB } from "../api/db";
-import HabitListItem from "../components/HabitListItem";
-import AddHabitForm from "../components/AddHabitForm";
+import { connectToDB } from "@/api/db";
+import HabitListItem from "@/components/HabitListItem";
+import AddHabitForm from "@/components/AddHabitForm";
 
 export default async function Habits() {
     const cookieStore = await cookies();
