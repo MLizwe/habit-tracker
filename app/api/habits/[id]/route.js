@@ -18,3 +18,15 @@ export async function PUT(request, { params }) {
     );
     return Response.json({ message: 'Habit updated' });
 }
+
+export async function PATCH(request, { params }) {
+    const { db } = await connectToDB();
+    const { id } = await params;
+
+    await db.collection('habits').updateOne(
+        { _id: new ObjectId(id) },
+        { $inc: { streak: 1 } }
+    );
+
+    return Response.json({ message: 'Streak updated' });
+}
