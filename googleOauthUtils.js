@@ -1,4 +1,4 @@
-import { connectToDB } from '@/app/api/db';
+import { connectToDB } from './app/api/db';
 
 export function getGoogleOauthUrl() {
     const rootUrl = 'https://accounts.google.com/o/oauth2/v2/auth';

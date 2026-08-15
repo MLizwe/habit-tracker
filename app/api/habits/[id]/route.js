@@ -1,4 +1,4 @@
-import { connectToDB } from '../../db';
+import { connectToDB } from '@/api/db';
 import { ObjectId } from 'mongodb';
 
 export async function DELETE(request, { params }) {
@@ -17,4 +17,16 @@ export async function PUT(request, { params }) {
         { $set: { name: data.name, category: data.category } }
     );
     return Response.json({ message: 'Habit updated' });
+}
+
+export async function PATCH(request, { params }) {
+    const { db } = await connectToDB();
+    const { id } = await params;
+
+    await db.collection('habits').updateOne(
+        { _id: new ObjectId(id) },
+        { $inc: { streak: 1 } }
+    );
+
+    return Response.json({ message: 'Streak updated' });
 }

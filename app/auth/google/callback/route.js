@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { getGoogleUser, updateOrCreateUserInfo } from '@/googleOauthUtils'
+import { getGoogleUser, updateOrCreateUserInfo } from '../../../../googleOauthUtils'
 import { SignJWT } from 'jose'
 
 export async function GET(params) {

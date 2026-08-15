@@ -1,4 +1,4 @@
-import { connectToDB } from '@/app/api/db';
+import { connectToDB } from '@/api/db';
 import { ObjectId } from 'mongodb';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';

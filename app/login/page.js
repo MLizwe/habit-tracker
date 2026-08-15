@@ -1,4 +1,4 @@
-import { getGoogleOauthUrl } from '@/googleOauthUtils';
+import { getGoogleOauthUrl } from '../../googleOauthUtils';
 import { redirect } from 'next/navigation';
 
 export default async function LoginPage() {

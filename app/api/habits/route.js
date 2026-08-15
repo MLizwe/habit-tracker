@@ -1,4 +1,4 @@
-import { connectToDB } from '../db';
+import { connectToDB } from '@/api/db';
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
 
