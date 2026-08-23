@@ -23,10 +23,15 @@ export async function PATCH(request, { params }) {
     const { db } = await connectToDB();
     const { id } = await params;
 
+    const today = new Date().toISOString().split('T')[0];
+
     await db.collection('habits').updateOne(
         { _id: new ObjectId(id) },
-        { $inc: { streak: 1 } }
+        {
+            $inc: { streak: 1 },
+            $addToSet: { completedDates: today }
+        }
     );
 
-    return Response.json({ message: 'Streak updated' });
+    return Response.json({ message: 'Habit completed' });
 }
