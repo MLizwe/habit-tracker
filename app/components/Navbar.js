@@ -18,6 +18,9 @@ export default function Navbar({ user, onLogout }) {
             <Link href="/habits" className={`transition-colors ${isActive('/habits') ? 'text-white font-bold' : 'text-gray-300 hover:text-white'}`}>
                 Habits
             </Link>
+            <Link href="/analytics" className={`transition-colors ${isActive('/analytics') ? 'text-white font-bold' : 'text-gray-300 hover:text-white'}`}>
+                Analytics
+            </Link>
 
             <div className="ml-auto flex items-center gap-4">
                 {user ? (
