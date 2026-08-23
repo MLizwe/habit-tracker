@@ -21,6 +21,9 @@ export default function Navbar({ user, onLogout }) {
             <Link href="/analytics" className={`transition-colors ${isActive('/analytics') ? 'text-white font-bold' : 'text-gray-300 hover:text-white'}`}>
                 Analytics
             </Link>
+            <Link href="/history" className={`transition-colors ${isActive('/history') ? 'text-white font-bold' : 'text-gray-300 hover:text-white'}`}>
+                History
+            </Link>
 
             <div className="ml-auto flex items-center gap-4">
                 {user ? (
