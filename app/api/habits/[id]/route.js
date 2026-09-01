@@ -22,9 +22,7 @@ export async function PUT(request, { params }) {
 export async function PATCH(request, { params }) {
     const { db } = await connectToDB();
     const { id } = await params;
-
     const today = new Date().toISOString().split('T')[0];
-
     await db.collection('habits').updateOne(
         { _id: new ObjectId(id) },
         {
@@ -32,6 +30,15 @@ export async function PATCH(request, { params }) {
             $addToSet: { completedDates: today }
         }
     );
-
     return Response.json({ message: 'Habit completed' });
+}
+
+export async function POST(request, { params }) {
+    const { db } = await connectToDB();
+    const { id } = await params;
+    await db.collection('habits').updateOne(
+        { _id: new ObjectId(id) },
+        { $set: { streak: 0 } }
+    );
+    return Response.json({ message: 'Streak reset' });
 }

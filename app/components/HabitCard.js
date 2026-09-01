@@ -19,6 +19,14 @@ export default function HabitCard({ habit }) {
         router.refresh();
     }
 
+    const handleReset = async () => {
+        if (!confirm('Are you sure you want to reset this streak to 0?')) return;
+        await fetch(`/api/habits/${habit._id}`, {
+            method: 'POST'
+        });
+        router.refresh();
+    }
+
     return (
         <div className="bg-gray-800 px-6 py-4 rounded-lg flex justify-between items-center">
             <p className="text-white font-medium">{habit.name}</p>
@@ -27,7 +35,12 @@ export default function HabitCard({ habit }) {
                 <button
                     onClick={handleComplete}
                     className="text-green-400 hover:text-green-300 text-sm transition-colors">
-                    Complete
+                    ✓ Complete
+                </button>
+                <button
+                    onClick={handleReset}
+                    className="text-yellow-400 hover:text-yellow-300 text-sm transition-colors">
+                    ↺ Reset
                 </button>
                 <Link
                     href={`/habits/edit/${habit._id}`}
